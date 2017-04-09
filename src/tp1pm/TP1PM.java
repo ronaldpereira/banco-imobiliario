@@ -63,7 +63,7 @@ public class TP1PM
             estatistica.close();
         } catch (Exception ex)
         {
-            ex.printStackTrace();
+            System.out.println(ex);
         }
             
         
