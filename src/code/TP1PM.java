@@ -1,4 +1,3 @@
-package tp1pm;
 import java.io.*;
 import java.util.Scanner;
 
@@ -8,11 +7,11 @@ public class TP1PM
     {        
         try
         {
-            Scanner tabuleiro = new Scanner(new File("src/IOFiles/tabuleiro.txt"));
+            Scanner tabuleiro = new Scanner(new File("../IOFiles/tabuleiro.txt"));
 
-            Scanner jogadas = new Scanner(new File("src/IOFiles/jogadas.txt"));
+            Scanner jogadas = new Scanner(new File("../IOFiles/jogadas.txt"));
             
-            PrintWriter estatistica = new PrintWriter(new FileWriter("src/IOFiles/estatisticas.txt"));
+            PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
             
             String line = tabuleiro.nextLine();
             String[] token = line.split(";");
