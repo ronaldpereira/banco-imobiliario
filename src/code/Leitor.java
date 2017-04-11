@@ -6,10 +6,10 @@ public class Leitor
     public static void Read() throws Exception
     {
         Scanner tabuleiro = new Scanner(new File("../IOFiles/tabuleiro.txt"));
-
         Scanner jogadas = new Scanner(new File("../IOFiles/jogadas.txt"));
-
         PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
+
+        Tabuleiro board = new Tabuleiro();
 
         String line = tabuleiro.nextLine();
         String[] token = line.split(";");
