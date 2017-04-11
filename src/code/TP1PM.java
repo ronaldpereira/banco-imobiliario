@@ -1,18 +1,19 @@
 import java.io.*;
 import java.util.Scanner;
+import Banco.java;
 
 public class TP1PM
 {
     public static void main(String[] args)
-    {        
+    {
         try
         {
             Scanner tabuleiro = new Scanner(new File("../IOFiles/tabuleiro.txt"));
 
             Scanner jogadas = new Scanner(new File("../IOFiles/jogadas.txt"));
-            
+
             PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
-            
+
             String line = tabuleiro.nextLine();
             String[] token = line.split(";");
             int numPosicoes = Integer.parseInt(token[0]);
@@ -25,22 +26,22 @@ public class TP1PM
                 if("3".equals(token[2]))
                 {
                     System.out.println(token[0]+" "+token[1]+" "+token[2]+" "+token[3]+" "+token[4]+" "+token[5]);
-                    estatistica.println(token[0]+" "+token[1]+" "+token[2]+" "+token[3]+" "+token[4]+" "+token[5]); 
+                    estatistica.println(token[0]+" "+token[1]+" "+token[2]+" "+token[3]+" "+token[4]+" "+token[5]);
                 }
                 else
                 {
                     System.out.println(token[0]+" "+token[1]+" "+token[2]);
-                    estatistica.println(token[0]+" "+token[1]+" "+token[2]); 
+                    estatistica.println(token[0]+" "+token[1]+" "+token[2]);
                 }
             }
-            
+
             line = jogadas.nextLine();
             token = line.split("%");
             int numJogadas = Integer.parseInt(token[0]);
             int numJogadores = Integer.parseInt(token[1]);
             int valorInicial = Integer.parseInt(token[2]);
             System.out.println("num jogadas:"+numJogadas+"\nnum jogadores:"+numJogadores+"\nvalor inicial:"+valorInicial);
-            
+
             for(int i=0; i < numJogadas; i++)
             {
                 line = jogadas.nextLine();
@@ -56,7 +57,7 @@ public class TP1PM
                     estatistica.println(token[0]+" "+token[1]+" "+token[2]);
                 }
             }
-            
+
             tabuleiro.close();
             jogadas.close();
             estatistica.close();
@@ -64,7 +65,7 @@ public class TP1PM
         {
             System.out.println(ex);
         }
-            
-        
+
+
     }
 }
