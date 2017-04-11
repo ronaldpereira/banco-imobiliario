@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.Scanner;
-import Banco.java;
 
 public class TP1PM
 {
