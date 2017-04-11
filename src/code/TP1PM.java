@@ -3,8 +3,9 @@ import java.util.Scanner;
 
 public class TP1PM
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-        new Banco();
+        Leitor entrada = new Leitor();
+        entrada.Read();
     }
 }

@@ -1,9 +1,9 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class Banco
+public class Leitor
 {
-    public static void Banco(String[] args) throws Exception
+    public static void Read() throws Exception
     {
         Scanner tabuleiro = new Scanner(new File("../IOFiles/tabuleiro.txt"));
 
