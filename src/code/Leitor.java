@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Leitor
 {
+	public static int numJogadores;
+
     public static void ReadBoard() throws Exception
     {
         Scanner tabuleiro = new Scanner(new File("../IOFiles/tabuleiro.txt"));
@@ -45,7 +47,7 @@ public class Leitor
         String line = jogadas.nextLine();
         String[] token = line.split("%");
         int numJogadas = Integer.parseInt(token[0]);
-        int numJogadores = Integer.parseInt(token[1]);
+        numJogadores = Integer.parseInt(token[1]);
         int valorInicial = Integer.parseInt(token[2]);
         System.out.println("num jogadas:"+numJogadas+"\nnum jogadores:"+numJogadores+"\nvalor inicial:"+valorInicial);
 

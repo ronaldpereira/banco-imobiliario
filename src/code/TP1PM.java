@@ -8,6 +8,7 @@ public class TP1PM
         Leitor entrada = new Leitor();
         entrada.ReadBoard();
         entrada.ReadPlays();
+        Jogador[] players = new Jogador[entrada.numJogadores];
         entrada.PrintStatistics();
     }
 }
