@@ -1,5 +1,7 @@
-import java.io.*;
-import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
 
 public class Leitor
 {
@@ -7,19 +9,19 @@ public class Leitor
 
     public static void ReadBoard() throws Exception
     {
-        Scanner tabuleiro = new Scanner(new File("../IOFiles/tabuleiro.txt"));
+        BufferedReader tabuleiro = new BufferedReader(new FileReader("../IOFiles/tabuleiro.txt"));
         PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
 
         Tabuleiro board = new Tabuleiro();
 
-        String line = tabuleiro.nextLine();
+        String line = tabuleiro.readLine();
         String[] token = line.split(";");
         int numPosicoes = Integer.parseInt(token[0]);
         System.out.println("num de posicoes:"+ numPosicoes);
 
         for(int i=0; i < numPosicoes; i++)
         {
-            line = tabuleiro.nextLine();
+            line = tabuleiro.readLine();
             token = line.split(";");
             if("3".equals(token[2]))
             {
@@ -41,10 +43,10 @@ public class Leitor
 
     public static void ReadPlays() throws Exception
     {
-        Scanner jogadas = new Scanner(new File("../IOFiles/jogadas.txt"));
+        BufferedReader jogadas = new BufferedReader(new FileReader("../IOFiles/jogadas.txt"));
         PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
 
-        String line = jogadas.nextLine();
+        String line = jogadas.readLine();
         String[] token = line.split("%");
         int numJogadas = Integer.parseInt(token[0]);
         numJogadores = Integer.parseInt(token[1]);
@@ -53,7 +55,7 @@ public class Leitor
 
         for(int i=0; i < numJogadas; i++)
         {
-            line = jogadas.nextLine();
+            line = jogadas.readLine();
             token = line.split(";");
             if("DUMP".equals(line))
             {
