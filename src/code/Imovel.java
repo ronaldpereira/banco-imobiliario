@@ -1,6 +1,6 @@
 public class Imovel
 {
-    public int boardposition;
+    private int boardposition;
     private int typeid;
     private double price;
     private double rent;
