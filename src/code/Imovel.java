@@ -1,12 +1,20 @@
 public class Imovel
 {
-    private int id;
-    private int price;
-    private int rent;
+    public int boardposition;
+    private int typeid;
+    private double price;
+    private double rent;
     private int ownerid = 0;
 
-    private void calculaAluguel(int rent)
+    private void calculaAluguel(double rent)
     {
-        this.rent = this.price * rent;
+        this.rent = this.price * (rent/100);
+    }
+
+    public void criaImovel(int typeid, double price, double rent)
+    {
+        this.typeid = typeid;
+        this.price = price;
+        calculaAluguel(rent);
     }
 }

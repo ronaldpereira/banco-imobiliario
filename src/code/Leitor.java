@@ -9,35 +9,41 @@ public class Leitor
 
     public static void ReadBoard() throws Exception
     {
-        BufferedReader tabuleiro = new BufferedReader(new FileReader("../IOFiles/tabuleiro.txt"));
+        BufferedReader entradatabuleiro = new BufferedReader(new FileReader("../IOFiles/tabuleiro.txt"));
         PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
 
-        Tabuleiro board = new Tabuleiro();
-
-        String line = tabuleiro.readLine();
+        String line = entradatabuleiro.readLine();
         String[] token = line.split(";");
         int numPosicoes = Integer.parseInt(token[0]);
         System.out.println("num de posicoes:"+ numPosicoes);
 
+        Tabuleiro[] board = new Tabuleiro[numPosicoes+1];
+        Imovel[] property = new Imovel[numPosicoes+1];
+
         for(int i=0; i < numPosicoes; i++)
         {
-            line = tabuleiro.readLine();
+            line = entradatabuleiro.readLine();
             token = line.split(";");
+            System.out.println(line);
+
             if("3".equals(token[2]))
             {
-                System.out.println(token[0]+" "+token[1]+" "+token[2]+" "+token[3]+" "+token[4]+" "+token[5]);
-                estatistica.println(token[0]+" "+token[1]+" "+token[2]+" "+token[3]+" "+token[4]+" "+token[5]);
+                board[Integer.parseInt(token[1])] = new Tabuleiro();
+                property[Integer.parseInt(token[1])] = new Imovel();
+
+                board[Integer.parseInt(token[1])].criaPosicao(Integer.parseInt(token[2]));
+                property[Integer.parseInt(token[1])].criaImovel((Integer.parseInt(token[3])), Double.parseDouble(token[4]), Double.parseDouble(token[5]));
             }
+
             else
             {
-                System.out.println(token[0]+" "+token[1]+" "+token[2]);
-                estatistica.println(token[0]+" "+token[1]+" "+token[2]);
+                board[Integer.parseInt(token[1])] = new Tabuleiro();
+
+                board[1].criaPosicao(Integer.parseInt(token[1]));
             }
         }
 
-        
-
-        tabuleiro.close();
+        entradatabuleiro.close();
         estatistica.close();
     }
 
@@ -75,7 +81,7 @@ public class Leitor
     public static void PrintStatistics() throws Exception
     {
         PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
-    	
+
     	estatistica.close();
     }
 }

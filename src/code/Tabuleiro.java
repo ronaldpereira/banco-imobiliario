@@ -1,5 +1,10 @@
 public class Tabuleiro
 {
-    private int houses;
-  	private int[] posicao;
+  	private int position;
+    private int positiontype;
+
+    public void criaPosicao(int positiontype)
+    {
+        this.positiontype = positiontype;
+    }
 }
