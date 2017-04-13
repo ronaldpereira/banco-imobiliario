@@ -5,16 +5,16 @@ import java.io.BufferedReader;
 
 public class Leitor
 {
-	public static int numJogadores;
+	private int numJogadores;
+    public int numPosicoes;
 
-    public static void ReadBoard() throws Exception
+    public void ReadBoard() throws Exception
     {
         BufferedReader entradatabuleiro = new BufferedReader(new FileReader("../IOFiles/tabuleiro.txt"));
-        PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
 
         String line = entradatabuleiro.readLine();
         String[] token = line.split(";");
-        int numPosicoes = Integer.parseInt(token[0]);
+        numPosicoes = Integer.parseInt(token[0]);
         System.out.println("num de posicoes:"+ numPosicoes);
 
         Tabuleiro[] board = new Tabuleiro[numPosicoes+1];
@@ -44,13 +44,11 @@ public class Leitor
         }
 
         entradatabuleiro.close();
-        estatistica.close();
     }
 
-    public static void ReadPlays() throws Exception
+    public void ReadPlays() throws Exception
     {
         BufferedReader jogadas = new BufferedReader(new FileReader("../IOFiles/jogadas.txt"));
-        PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
 
         String line = jogadas.readLine();
         String[] token = line.split("%");
@@ -58,36 +56,34 @@ public class Leitor
         int numJogadas = Integer.parseInt(token[0]);
         numJogadores = Integer.parseInt(token[1]);
         double valorInicial = Double.parseDouble(token[2]);
-        
+
         System.out.println("num jogadas:"+numJogadas+"\nnum jogadores:"+numJogadores+"\nvalor inicial:"+valorInicial);
 
         Jogador[] player = new Jogador[numJogadores+1];
-
         for (int i=1; i <= numJogadores ; i++)
-        {
             player[i] = new Jogador(i, valorInicial);
-        }
 
+        Jogadas[] play = new Jogadas[numJogadas];
         for(int i=0; i < numJogadas; i++)
         {
             line = jogadas.readLine();
             token = line.split(";");
+            System.out.println(line);
+
             if("DUMP".equals(line))
             {
-                System.out.println(line);
-                estatistica.println(line);
+                System.out.println("END");
             }
+
             else
             {
-                System.out.println(token[0]+" "+token[1]+" "+token[2]);
-                estatistica.println(token[0]+" "+token[1]+" "+token[2]);
+                play[i] = new Jogadas(Integer.parseInt(token[0]), Integer.parseInt(token[1]) ,Integer.parseInt(token[2]));
             }
         }
         jogadas.close();
-        estatistica.close();
     }
 
-    public static void PrintStatistics() throws Exception
+    public void PrintStatistics() throws Exception
     {
         PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
 

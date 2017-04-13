@@ -15,4 +15,9 @@ public class Jogador
         this.id = id;
         this.total = total;
     }
+
+    public void moveJogador(int dice, int numPosicoes)
+    {
+        this.position = (this.position + dice) % numPosicoes;
+    }
 }

@@ -2,7 +2,7 @@ all:
 	javac *.java
 
 run:
-	java TP1PM
+	java BancoImobiliario
 
 clean:
 	rm -rf *.class
