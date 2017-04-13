@@ -54,10 +54,19 @@ public class Leitor
 
         String line = jogadas.readLine();
         String[] token = line.split("%");
+
         int numJogadas = Integer.parseInt(token[0]);
         numJogadores = Integer.parseInt(token[1]);
-        int valorInicial = Integer.parseInt(token[2]);
+        double valorInicial = Double.parseDouble(token[2]);
+        
         System.out.println("num jogadas:"+numJogadas+"\nnum jogadores:"+numJogadores+"\nvalor inicial:"+valorInicial);
+
+        Jogador[] player = new Jogador[numJogadores+1];
+
+        for (int i=1; i <= numJogadores ; i++)
+        {
+            player[i] = new Jogador(i, valorInicial);
+        }
 
         for(int i=0; i < numJogadas; i++)
         {
