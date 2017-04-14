@@ -16,4 +16,24 @@ public class Imovel
         this.price = price;
         calculaAluguel(rent);
     }
+
+    public double retornaPreco()
+    {
+        return this.price;
+    }
+
+    public double retornaAluguel()
+    {
+        return this.rent;
+    }
+
+    public void mudaDono(int newowner)
+    {
+        this.ownerid = newowner;
+    }
+
+    public void devolveImovel()
+    {
+        this.ownerid = 0;
+    }
 }
