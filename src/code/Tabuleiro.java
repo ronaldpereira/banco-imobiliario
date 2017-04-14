@@ -7,4 +7,9 @@ public class Tabuleiro
     {
         this.positiontype = positiontype;
     }
+
+    public int retornaTipoPosicao()
+    {
+        return this.positiontype;
+    }
 }

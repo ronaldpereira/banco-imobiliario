@@ -22,6 +22,11 @@ public class Imovel
         return this.price;
     }
 
+    public int retornaDono()
+    {
+        return this.ownerid;
+    }
+
     public double retornaAluguel()
     {
         return this.rent;

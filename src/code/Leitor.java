@@ -1,5 +1,3 @@
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
@@ -9,7 +7,7 @@ public class Leitor
     public int numPosicoes;
     public int numJogadas;
 
-    public void ReadBoard() throws Exception
+    public void Reader() throws Exception
     {
         BufferedReader entradatabuleiro = new BufferedReader(new FileReader("../IOFiles/tabuleiro.txt"));
 
@@ -45,14 +43,11 @@ public class Leitor
         }
 
         entradatabuleiro.close();
-    }
 
-    public void ReadPlays() throws Exception
-    {
         BufferedReader jogadas = new BufferedReader(new FileReader("../IOFiles/jogadas.txt"));
 
-        String line = jogadas.readLine();
-        String[] token = line.split("%");
+        line = jogadas.readLine();
+        token = line.split("%");
 
         numJogadas = Integer.parseInt(token[0]);
         numJogadores = Integer.parseInt(token[1]);
@@ -82,13 +77,10 @@ public class Leitor
                 jogada[i].criaJogada(Integer.parseInt(token[0]), Integer.parseInt(token[1]) ,Integer.parseInt(token[2]));
             }
         }
+
         jogadas.close();
-    }
 
-    public void PrintStatistics() throws Exception
-    {
-        PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
-
-    	estatistica.close();
+        JogaJogo jogajogo = new JogaJogo();
+        JogaJogo.jogaJogo(tabuleiro, imovel, jogador, jogada, numJogadas, numJogadores, numPosicoes);
     }
 }

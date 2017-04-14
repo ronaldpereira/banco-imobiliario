@@ -2,13 +2,12 @@ public class Jogador
 {
     private int id;
   	private double balance;
-  	private double paidRent = 0;
-  	private double receivedRent = 0;
+  	private double paidrent = 0;
+  	private double receivedrent = 0;
   	private int buys = 0;
-    private int turns = 0;
     private int completed = 0;
   	private int passedturns = 0;
-    private int position = 0;
+    private int position = 1;
     private boolean is_playing = true;
 
     Jogador(int id, double balance)
@@ -19,9 +18,9 @@ public class Jogador
 
     public int moveJogador(int dice, int numPosicoes)
     {
-        if(this.position + dice >= numPosicoes)
+        if(this.position + dice > numPosicoes)
         {
-            this.position = (this.position + dice) % numPosicoes;
+            this.position += dice - numPosicoes;
             this.completed++;
             this.balance += 500;
         }
@@ -32,30 +31,50 @@ public class Jogador
         return this.position;
     }
 
-    public void reduzSaldo(double preco)
+    public void incrementaPassados()
     {
-
+        this.passedturns++;
     }
 
-    public void incrementaComprado()
+    public double retornaSaldo()
     {
-
+        return this.balance;
     }
 
-    public void pagaAluguel()
+    public boolean retornaIs_playing()
     {
-
+        return this.is_playing;
     }
 
-    public void recebeAluguel()
+    public void fazCompra(double preco)
     {
-
+        this.balance -= preco;
+        this.buys += preco;
     }
 
-    public void saiDoJogo()
+    public void pagaAluguel(double preco)
+    {
+        this.balance -= preco;
+        this.paidrent += preco;
+    }
+
+    public void recebeAluguel(double preco)
+    {
+        this.balance += preco;
+        this.receivedrent += preco;
+    }
+
+    public void saiDoJogo(Imovel[] imovel)
     {
         this.is_playing = false;
 
-        //TODO colocar o ownerid de todos os imoveis = 0 usando imove.devolveImovel
+        for(int i = 1; i <= 10; i++)
+        {
+            if(imovel[i] != null)
+            {
+                if(imovel[i].retornaDono() == this.id)
+                    imovel[i].devolveImovel();
+            }
+        }
     }
 }
