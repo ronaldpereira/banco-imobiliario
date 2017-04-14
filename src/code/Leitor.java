@@ -63,7 +63,7 @@ public class Leitor
         for (int i=1; i <= numJogadores ; i++)
             player[i] = new Jogador(i, valorInicial);
 
-        Jogadas[] play = new Jogadas[numJogadas];
+        Jogada[] play = new Jogada[numJogadas];
         for(int i=0; i < numJogadas; i++)
         {
             line = jogadas.readLine();
@@ -77,7 +77,8 @@ public class Leitor
 
             else
             {
-                play[i] = new Jogadas(Integer.parseInt(token[0]), Integer.parseInt(token[1]) ,Integer.parseInt(token[2]));
+                play[i] = new Jogada();
+                play[i].criaJogada(Integer.parseInt(token[0]), Integer.parseInt(token[1]) ,Integer.parseInt(token[2]));
             }
         }
         jogadas.close();

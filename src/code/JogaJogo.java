@@ -1,4 +1,4 @@
-public class JogaJogo
+public class JogaJogo extends Jogada
 {
 
 }
