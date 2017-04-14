@@ -18,6 +18,13 @@ public class Jogador
 
     public void moveJogador(int dice, int numPosicoes)
     {
-        this.position = (this.position + dice) % numPosicoes;
+        if(this.position + dice >= numPosicoes)
+        {
+            this.position = (this.position + dice) % numPosicoes;
+            this.turns++;
+        }
+
+        else
+            this.position += dice;
     }
 }
