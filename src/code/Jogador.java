@@ -4,7 +4,7 @@ public class Jogador
   	private double balance;
   	private double paidrent = 0;
   	private double receivedrent = 0;
-  	private int buys = 0;
+    private double buys = 0;
     private int completed = 0;
   	private int passedturns = 0;
     private int position = 1;
@@ -36,9 +36,34 @@ public class Jogador
         this.passedturns++;
     }
 
+    public int retornaVoltasDadas()
+    {
+        return this.completed;
+    }
+
     public double retornaSaldo()
     {
         return this.balance;
+    }
+
+    public double retornaAluguelRecebido()
+    {
+        return this.receivedrent;
+    }
+
+    public double retornaAluguelPago()
+    {
+        return this.paidrent;
+    }
+
+    public double retornaQuantoComprou()
+    {
+        return this.buys;
+    }
+
+    public int retornaPassaAVez()
+    {
+        return this.passedturns;
     }
 
     public boolean retornaIs_playing()
