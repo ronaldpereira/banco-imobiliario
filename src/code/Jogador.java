@@ -36,6 +36,11 @@ public class Jogador
         this.passedturns++;
     }
 
+    public int retornaID()
+    {
+        return this.id;
+    }
+
     public int retornaVoltasDadas()
     {
         return this.completed;

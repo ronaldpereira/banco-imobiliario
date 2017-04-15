@@ -3,12 +3,11 @@ import java.io.PrintWriter;
 
 public class Escritor
 {
-    public static void printStatistics(Jogador[] jogador, int numJogadas, int numJogadores) throws Exception
+    public static void printStatistics(Jogador[] jogador, int numJogadas, int numJogadores, int jogadas) throws Exception
     {
         PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
 
-        int numTurns = (int) Math.ceil(numJogadas/numJogadores);
-        estatistica.print("1:"+numTurns);
+        estatistica.print("1:"+jogadas);
 
         estatistica.print("\n2:");
         for (int i = 1; i <= numJogadores; i++)
