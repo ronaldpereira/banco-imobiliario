@@ -58,7 +58,9 @@ public class JogaJogo extends Jogada
                     }
 
                     else if(tabuleiro[position].retornaTipoPosicao() == 2)
+                    {
                         jogador[jogada[i].playerid].incrementaPassados();
+                    }
             	}
         	}
             Escritor.printStatistics(jogador, numJogadas, numJogadores);

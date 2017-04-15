@@ -36,7 +36,7 @@ public class Leitor
             {
                 tabuleiro[Integer.parseInt(token[1])] = new Tabuleiro();
 
-                tabuleiro[1].criaPosicao(Integer.parseInt(token[1]));
+                tabuleiro[Integer.parseInt(token[1])].criaPosicao(Integer.parseInt(token[2]));
             }
         }
 
