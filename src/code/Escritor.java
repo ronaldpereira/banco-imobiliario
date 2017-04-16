@@ -1,15 +1,16 @@
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
-public class Escritor
+public class Escritor // Classe auxiliar para realizacao da impressão da saida
 {
+    // Metodo para realizar a impressao da saida em arquivo
     public static void printStatistics(Jogador[] jogador, int numJogadas, int numJogadores, int jogadas) throws Exception
     {
-        PrintWriter estatistica = new PrintWriter(new FileWriter("../IOFiles/estatisticas.txt"));
+        PrintWriter estatistica = new PrintWriter(new FileWriter("./estatisticas.txt")); // Abertura do arquivo de saida
 
-        estatistica.print("1:"+jogadas);
+        estatistica.print("1:"+jogadas); // Impressao de quantas rodadas o jogo teve
 
-        estatistica.print("\n2:");
+        estatistica.print("\n2:"); // Impressao de quantas voltar cada jogador deu
         for (int i = 1; i <= numJogadores; i++)
         {
             estatistica.print(i+"-"+jogador[i].retornaVoltasDadas());
@@ -17,7 +18,7 @@ public class Escritor
                 estatistica.print(";");
         }
 
-        estatistica.print("\n3:");
+        estatistica.print("\n3:"); // Impressao do saldo restante de cada jogador ao final do jogo
         for (int i = 1; i <= numJogadores; i++)
         {
             double saldo = jogador[i].retornaSaldo();
@@ -40,7 +41,7 @@ public class Escritor
 
         }
 
-        estatistica.print("\n4:");
+        estatistica.print("\n4:"); // Impressao da quantidade de aluguel recebido por cada jogador
         for (int i = 1; i <= numJogadores; i++)
         {
             double aluguelrecebido = jogador[i].retornaAluguelRecebido();
@@ -62,7 +63,7 @@ public class Escritor
             }
         }
 
-        estatistica.print("\n5:");
+        estatistica.print("\n5:"); // Impressao da quantidade de aluguel pago por cada jogador
         for (int i = 1; i <= numJogadores; i++)
         {
             double aluguelpago = jogador[i].retornaAluguelPago();
@@ -84,7 +85,7 @@ public class Escritor
             }
         }
 
-        estatistica.print("\n6:");
+        estatistica.print("\n6:"); // Impressao da quantidade de dinheiro que cada jogador gastou comprando imoveis
         for (int i = 1; i <= numJogadores; i++)
         {
             double quantocomprou = jogador[i].retornaQuantoComprou();
@@ -106,7 +107,7 @@ public class Escritor
             }
         }
 
-        estatistica.print("\n7:");
+        estatistica.print("\n7:"); // Impressao da quantidade de Passa a Vez que cada jogador teve
         for (int i = 1; i <= numJogadores; i++)
         {
             estatistica.print(i+"-"+jogador[i].retornaPassaAVez());
@@ -114,6 +115,6 @@ public class Escritor
                 estatistica.print(";");
         }
 
-        estatistica.close();
+        estatistica.close(); // Fecha o arquivo de saida estatisticas.txt
     }
 }
