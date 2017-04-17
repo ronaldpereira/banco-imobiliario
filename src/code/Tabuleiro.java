@@ -1,6 +1,6 @@
 public class Tabuleiro // Classe que representa o tabuleiro do jogo
 {
-  	private int position; // Guarda a posicao da casa no tabuleiro
+    private int position; // Guarda a posicao da casa no tabuleiro
     private int positiontype; // Guarda o tipo de posicao da casa
 
     public void criaPosicao(int position, int positiontype) // Inicializa a casa do tabuleiro
